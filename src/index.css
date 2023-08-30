@@ -11,3 +11,46 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#message {
+	background-color: lightgray;
+	border-radius: 20px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+#name {
+	padding-left: 80px;
+	padding-top: 5px;
+}
+
+#msg {
+	padding-left: 80px;
+	padding-bottom: 10px;
+	margin-top: -10px;
+}
+
+#message-bar {
+	display: flex;
+}
+
+#message-input {
+	padding: 10px;
+	font-size: 15px;
+	border-radius: 5px;
+	border: solid;
+	border-width: 1px;
+	border-color: lightgray;
+	margin-left: 10px;
+	flex: 1;
+}
+
+#message-submit {
+	padding: 10px;
+	border-radius: 5px;
+	border: solid;
+	border-width: 1px;
+	border-color: lightgray;
+	margin-right: 10px;
+	margin-left: 10px;
+}
