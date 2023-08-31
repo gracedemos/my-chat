@@ -3,24 +3,30 @@ import axios from "axios";
 
 import Message from "./Message";
 
+interface MsgObject {
+	name: string,
+	msg: string
+}
+
 function Messages() {
-	const [messageCount, setMessageCount] = useState(0);
-	const [messages, setMessages] = useState([]);
+	const [messages, setMessages] = useState<MsgObject[]>([]);
 
 	useEffect(() => {
 		setInterval(() => {
-			axios.get("http://127.0.0.1:8080")
+			axios.get("/msg")
 			.then(response => {
-				setMessageCount(response.data.message_count);
-				setMessages(response.data.messages);
-			});
+				setMessages(response.data);
+			})
+			.catch(_ => {
+				window.location.reload();
+			})
 		}, 250);
 	}, []);
 
-	let messageComps = [];
-	for(let i = 0; i < messageCount; i++) {
-		messageComps.push(<Message name={messages[i]["name"]} msg={messages[i]["msg"]}/>);
-	}
+	let messageComps: JSX.Element[] = [];
+	messages.forEach(message => {
+		messageComps.push(<Message name={message.name} msg={message.msg}/>);
+	})
 
 	return (
 		<div id="messages">
