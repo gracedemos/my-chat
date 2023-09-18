@@ -2,18 +2,26 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import Message from "./Message";
+import ToName from "./to-name";
 
 interface MsgObject {
-	name: string,
+	from_name: string,
+	to_name: string,
 	msg: string
 }
 
-function Messages() {
+interface Props {
+	toName: ToName
+}
+
+function Messages(props: Props) {
 	const [messages, setMessages] = useState<MsgObject[]>([]);
 
 	useEffect(() => {
 		setInterval(() => {
-			axios.get("/msg")
+			axios.post("/msg", {
+				to_name: props.toName.toName
+			}, { withCredentials: true} )
 			.then(response => {
 				setMessages(response.data);
 			})
@@ -25,7 +33,7 @@ function Messages() {
 
 	let messageComps: JSX.Element[] = [];
 	messages.forEach(message => {
-		messageComps.push(<Message name={message.name} msg={message.msg}/>);
+		messageComps.push(<Message name={message.from_name} msg={message.msg}/>);
 	})
 
 	return (

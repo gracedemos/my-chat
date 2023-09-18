@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Messages from "./Messages";
 import MessageBar from "./MessageBar";
 import Conversations from './Conversations';
 import Cookies from "universal-cookie";
 import axios from "axios";
+import ToName from "./to-name";
 
 function App() {
 	const cookies = new Cookies({ path: '/' });
@@ -17,12 +18,14 @@ function App() {
 		window.location.assign("/login");
 	})
 
+	const [toName, setToName] = useState(new ToName);
+
 	return (
 		<div id="app">
-			<Conversations/>
+			<Conversations toName={toName} setToName={setToName}/>
 			<div id="chat">
-				<Messages/>
-				<MessageBar/>
+				<Messages toName={toName}/>
+				<MessageBar to_name={toName}/>
 			</div>
 		</div>
 	)

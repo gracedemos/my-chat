@@ -179,6 +179,7 @@ html, body, #root, #app {
 #conversations {
 	display: flex;
 	flex-direction: column;
+	background-color: #f3f3f3;
 }
 
 #toolbar {
@@ -207,5 +208,22 @@ html, body, #root, #app {
 }
 
 #signout:active {
-	background-color: gray;
+	background-color: #808080;
+}
+
+#chats-bar {
+	display: flex;
+}
+
+#add-chat {
+	flex: 0.1;
+	margin: 15px;
+	border-radius: 5px;
+	border: solid;
+	border-width: 1px;
+	border-color: lightgray;;
+}
+
+#chats-h4 {
+	margin-left: 20px;
 }
