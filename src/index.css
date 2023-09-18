@@ -180,6 +180,7 @@ html, body, #root, #app {
 	display: flex;
 	flex-direction: column;
 	background-color: #f3f3f3;
+	overflow-y: auto;
 }
 
 #toolbar {
@@ -202,11 +203,9 @@ html, body, #root, #app {
 	border: none;
 	background-color: #bdbdbd;
 }
-
 #signout:hover {
 	background-color: darkgray;
 }
-
 #signout:active {
 	background-color: #808080;
 }
@@ -215,15 +214,57 @@ html, body, #root, #app {
 	display: flex;
 }
 
-#add-chat {
-	flex: 0.1;
-	margin: 15px;
-	border-radius: 5px;
-	border: solid;
-	border-width: 1px;
-	border-color: lightgray;;
-}
-
 #chats-h4 {
 	margin-left: 20px;
+}
+
+#add-chat {
+	display: flex;
+	align-items: center;
+	margin-left: 5%;
+	width: 100%;
+}
+
+#add-chat-button {
+	margin-right: 15%;
+	margin-left: 5%;
+	height: 60%;
+	width: 30px;
+	flex: 0.5;
+}
+
+#select {
+	flex: 3;
+}
+
+#selected {
+	background-color: #bdbdbd;
+	height: 40%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding-left: 5%;
+	border: 1px solid darkgray;
+	border-radius: 10px;
+	margin-left: 3%;
+	margin-right: 3%;
+}
+
+#unselected {
+	height: 40%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding-left: 5%;
+	border: 1px solid lightgray;
+	border-radius: 10px;
+	background-color: #eaeaea;
+	margin-left: 3%;
+	margin-right: 3%;
+}
+#unselected:hover {
+	background-color: #e0e0e0;
+}
+#unselected:active {
+	background-color: #bdbdbd;
 }

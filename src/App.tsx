@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import Messages from "./Messages";
 import MessageBar from "./MessageBar";
@@ -18,11 +18,11 @@ function App() {
 		window.location.assign("/login");
 	})
 
-	const [toName, setToName] = useState(new ToName);
+	const toName = new ToName();
 
 	return (
 		<div id="app">
-			<Conversations toName={toName} setToName={setToName}/>
+			<Conversations toName={toName}/>
 			<div id="chat">
 				<Messages toName={toName}/>
 				<MessageBar to_name={toName}/>

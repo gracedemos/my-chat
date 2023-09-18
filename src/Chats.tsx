@@ -25,7 +25,11 @@ function Chats(props: Props) {
 
 	let chatComps: React.ReactElement[] = [];
 	chats.forEach(chat => {
-		chatComps.push(<h4 onClick={() => props.toName.set(chat.to_name)}>{chat.to_name}</h4>);
+		if(chat.to_name === props.toName.toName) {
+			chatComps.push(<h3 id="selected">{chat.to_name}</h3>);
+			return;
+		}
+		chatComps.push(<h3 id="unselected" onClick={() => props.toName.set(chat.to_name)}>{chat.to_name}</h3>);
 	})
 
 	return (

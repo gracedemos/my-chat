@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Chats from "./Chats";
+import AddChat from "./AddChat";
 import ToName from "./to-name";
 
 interface Props {
-	toName: ToName,
-	setToName: Function
+	toName: ToName
 }
 
 function Conversations(props: Props) {
@@ -25,7 +25,7 @@ function Conversations(props: Props) {
 			</div>
 			<div id="chats-bar">
 				<h4 id="chats-h4">Chats</h4>
-				<button id="add-chat">+</button>
+				<AddChat to_name={props.toName}/>
 			</div>
 			<Chats toName={props.toName}/>
 		</div>
